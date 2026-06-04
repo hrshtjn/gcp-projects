@@ -1,0 +1,32 @@
+{
+  "realm": "gcp-poc",
+  "enabled": true,
+  "clients": [
+    {
+      "clientId": "gcp-wif-client",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "my-super-secret-client-secret",
+      "standardFlowEnabled": false,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": true,
+      "publicClient": false,
+      "protocol": "openid-connect",
+      "fullScopeAllowed": true,
+      "protocolMappers": [
+        {
+          "name": "audience-mapper",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "gcp-wif-client",
+            "id.token.claim": "false",
+            "access.token.claim": "true"
+          }
+        }
+      ]
+    }
+  ]
+}
